@@ -122,6 +122,10 @@ button {
   gap: 18px;
 }
 
+.nav-menu {
+  display: none;
+}
+
 .brand {
   display: flex;
   flex-direction: column;
@@ -168,6 +172,10 @@ button {
   color: #fff;
   font-weight: 700;
   transition: transform 180ms ease, background 180ms ease;
+}
+
+.nav-toggle {
+  display: none;
 }
 
 .nav-cta:hover,
@@ -686,12 +694,10 @@ footer {
   .nav {
     border-radius: 30px;
     padding: 16px 18px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .nav-links {
-    order: 3;
-    width: 100%;
     justify-content: space-between;
     gap: 10px 16px;
     font-size: 0.84rem;
@@ -745,13 +751,15 @@ footer {
   }
 
   .nav {
-    padding: 14px 16px 16px;
+    position: relative;
+    padding: 14px 16px;
     border-radius: 22px;
-    gap: 14px;
+    gap: 12px;
+    align-items: center;
   }
 
   .brand {
-    width: 100%;
+    flex: 1 1 auto;
     line-height: 0.9;
   }
 
@@ -764,6 +772,98 @@ footer {
     font-size: 0.58rem;
     letter-spacing: 0.18em;
     margin-top: 4px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    order: 2;
+    width: auto;
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-menu {
+    display: block;
+    position: relative;
+    order: 3;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(84, 64, 12, 0.14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .nav-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-toggle span,
+  .nav-toggle::before,
+  .nav-toggle::after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .nav-toggle span {
+    margin: 4px 0;
+  }
+
+  .nav-menu[open] .nav-toggle::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-menu[open] .nav-toggle span {
+    opacity: 0;
+  }
+
+  .nav-menu[open] .nav-toggle::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: min(220px, calc(100vw - 28px));
+    padding: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(84, 64, 12, 0.12);
+    background: rgba(255, 251, 242, 0.96);
+    box-shadow: 0 20px 40px rgba(84, 64, 12, 0.16);
+    backdrop-filter: blur(14px);
+  }
+
+  .nav-dropdown a {
+    display: block;
+    padding: 12px 12px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .nav-dropdown a:hover,
+  .nav-dropdown a:focus-visible {
+    background: rgba(185, 153, 40, 0.1);
+    color: var(--ink);
   }
 
   .hero,
@@ -779,18 +879,6 @@ footer {
     align-items: stretch;
   }
 
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 14px;
-    width: 100%;
-    font-size: 0.82rem;
-  }
-
-  .nav-links a {
-    padding-top: 2px;
-  }
-
   .button-primary,
   .button-secondary,
   .nav-cta {
@@ -798,9 +886,7 @@ footer {
   }
 
   .nav-cta {
-    min-height: 44px;
-    font-size: 0.95rem;
-    order: 2;
+    width: auto;
   }
 
   .hero {
@@ -886,6 +972,15 @@ footer {
         <a href="#faq">FAQ</a>
       </div>
       <a class="nav-cta" href="#contact">Get Access</a>
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-label="Open navigation menu"><span></span></summary>
+        <div class="nav-dropdown">
+          <a href="#about">About</a>
+          <a href="#insights">Insights</a>
+          <a href="#resources">Resources</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </details>
     </nav>
   </div>
 
