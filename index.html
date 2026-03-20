@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wealth Absorbed Insights | Education & Guidance</title>
+<meta
+  name="description"
+  content="A structured landing page for financial education, planning guidance, and independent insights under the Wealth Absorbed Insights brand."
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #241e10;
+  --ink-soft: #675a31;
+  --sand: #faf6eb;
+  --paper: rgba(255, 255, 255, 0.8);
+  --line: rgba(84, 64, 12, 0.16);
+  --navy: #b99928;
+  --navy-deep: #7d6512;
+  --gold: #b99928;
+  --gold-soft: #e2c768;
+  --mint: #efe7cc;
+  --shadow: 0 24px 60px rgba(84, 64, 12, 0.14);
+  --radius-xl: 30px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --max: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(185, 153, 40, 0.22), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(125, 101, 18, 0.12), transparent 24%),
+    linear-gradient(180deg, #fffcf4 0%, #f8f1dc 42%, #fcf8ef 100%);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 38px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.site-shell {
+  overflow: clip;
+}
+
+.topbar {
+  background: var(--navy-deep);
+  color: rgba(255, 255, 255, 0.84);
+  padding: 10px 20px;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.topbar strong {
+  color: #fff;
+}
+
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 16px 20px 0;
+}
+
+.nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(250, 245, 237, 0.78);
+  backdrop-filter: blur(16px);
+  border-radius: 999px;
+  box-shadow: 0 18px 40px rgba(17, 32, 50, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.92;
+}
+
+.brand-mark {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.brand-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--navy);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible,
+.button-primary:hover,
+.button-primary:focus-visible {
+  transform: translateY(-1px);
+  background: #c7a534;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.button-primary {
+  background: var(--navy);
+  color: #fff;
+}
+
+.button-secondary {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  border-color: rgba(185, 153, 40, 0.36);
+  transform: translateY(-1px);
+}
+
+.hero {
+  max-width: var(--max);
+  margin: 28px auto 0;
+  padding: 0 20px;
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+  padding: 70px 56px 54px;
+  background:
+    linear-gradient(135deg, rgba(95, 73, 12, 0.96), rgba(185, 153, 40, 0.88)),
+    linear-gradient(120deg, rgba(255, 244, 206, 0.16), transparent 42%);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.hero-card::before,
+.hero-card::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+
+.hero-card::before {
+  width: 280px;
+  height: 280px;
+  right: -60px;
+  top: -40px;
+  background: rgba(228, 197, 150, 0.16);
+}
+
+.hero-card::after {
+  width: 220px;
+  height: 220px;
+  left: 56%;
+  bottom: -90px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 34px;
+  align-items: end;
+}
+
+.hero-copy h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.3rem, 8vw, 5.8rem);
+  line-height: 0.95;
+  font-weight: 600;
+  margin: 18px 0 22px;
+  max-width: 10ch;
+}
+
+.hero-copy p {
+  max-width: 42rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hero-points {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-points li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-points li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 0 6px rgba(228, 197, 150, 0.12);
+}
+
+.hero-panel {
+  padding: 26px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.hero-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-stat:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hero-stat strong {
+  min-width: 86px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold-soft);
+}
+
+.trust-strip {
+  max-width: var(--max);
+  margin: 22px auto 0;
+  padding: 0 20px;
+}
+
+.trust-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 18px;
+  padding: 22px 24px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(17, 32, 50, 0.08);
+  box-shadow: 0 16px 30px rgba(17, 32, 50, 0.06);
+}
+
+.trust-item {
+  padding: 8px 0;
+}
+
+.trust-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 92px 20px 0;
+}
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.section-head h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 0.98;
+  font-weight: 600;
+  margin: 14px 0 14px;
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+}
+
+.about-grid,
+.process-grid,
+.resource-grid,
+.faq-grid,
+.insight-grid,
+.pillar-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.about-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  align-items: stretch;
+}
+
+.glass,
+.card {
+  border: 1px solid rgba(17, 32, 50, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 14px 32px rgba(17, 32, 50, 0.06);
+}
+
+.glass {
+  border-radius: 28px;
+  padding: 32px;
+}
+
+.story-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.68)),
+    radial-gradient(circle at top right, rgba(198, 146, 76, 0.12), transparent 32%);
+}
+
+.story-card blockquote {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.1rem;
+  line-height: 1.02;
+  color: var(--navy);
+  margin: 18px 0 18px;
+}
+
+.story-card p,
+.info-list li p,
+.card p,
+.faq-item p,
+.step p,
+.cta-panel p,
+footer p {
+  color: var(--ink-soft);
+}
+
+.info-list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+.info-list li {
+  padding: 18px 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(220, 233, 224, 0.48);
+}
+
+.info-list li strong,
+.card h3,
+.step h3,
+.faq-item h3,
+.cta-panel h2 {
+  display: block;
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+
+.pillar-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  border-radius: 26px;
+  padding: 28px;
+}
+
+.card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  background: rgba(22, 58, 95, 0.08);
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.insight-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.insight-card {
+  min-height: 100%;
+}
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(185, 153, 40, 0.12);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.read-more::after {
+  content: "→";
+  transition: transform 180ms ease;
+}
+
+.insight-card:hover .read-more::after,
+.resource-card:hover .read-more::after {
+  transform: translateX(3px);
+}
+
+.resource-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resource-card {
+  padding: 30px;
+}
+
+.resource-card.featured {
+  background:
+    linear-gradient(135deg, rgba(125, 101, 18, 0.96), rgba(185, 153, 40, 0.88)),
+    linear-gradient(90deg, rgba(255, 248, 220, 0.18), transparent 45%);
+  color: #fff;
+}
+
+.resource-card.featured p,
+.resource-card.featured .read-more,
+.resource-card.featured .meta {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.resource-card.featured .tag {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.process-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.step {
+  position: relative;
+  padding: 30px 24px 24px;
+  border-radius: 26px;
+  border: 1px solid rgba(17, 32, 50, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(185, 153, 40, 0.12), rgba(226, 199, 104, 0.28));
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.faq-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.faq-item {
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid rgba(17, 32, 50, 0.08);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.cta {
+  padding-bottom: 92px;
+}
+
+.cta-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 42px;
+  border-radius: 34px;
+  background:
+    linear-gradient(135deg, rgba(247, 239, 210, 0.96), rgba(255, 251, 239, 0.92)),
+    radial-gradient(circle at top right, rgba(185, 153, 40, 0.16), transparent 32%);
+  border: 1px solid rgba(17, 32, 50, 0.08);
+}
+
+.cta-panel::after {
+  content: "";
+  position: absolute;
+  inset: auto -40px -70px auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(22, 58, 95, 0.08);
+}
+
+footer {
+  padding: 0 20px 36px;
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 30px;
+  border-top: 1px solid rgba(17, 32, 50, 0.1);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 22px;
+}
+
+.footer-brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  justify-content: flex-end;
+  align-content: start;
+  color: var(--ink-soft);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--navy);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1080px) {
+  .hero-grid,
+  .about-grid,
+  .trust-card,
+  .pillar-grid,
+  .insight-grid,
+  .resource-grid,
+  .process-grid,
+  .faq-grid,
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .nav {
+    border-radius: 30px;
+    padding: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.84rem;
+  }
+
+  .hero-card {
+    padding: 48px 26px 28px;
+    border-radius: 28px;
+  }
+
+  .hero-copy h1 {
+    max-width: none;
+  }
+
+  .section {
+    padding-top: 72px;
+  }
+
+  .glass,
+  .card,
+  .faq-item,
+  .step,
+  .cta-panel {
+    padding: 24px;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    font-size: 0.7rem;
+  }
+
+  .nav-wrap {
+    padding: 12px 14px 0;
+  }
+
+  .hero,
+  .trust-strip,
+  .section,
+  footer {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .button-row,
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-primary,
+  .button-secondary,
+  .nav-cta {
+    width: 100%;
+  }
+
+  .section-head h2 {
+    font-size: 2.45rem;
+  }
+
+  .story-card blockquote {
+    font-size: 1.8rem;
+  }
+}
+</style>
+</head>
+<body>
+<div class="site-shell">
+  <div class="topbar">
+    <strong>For educational purposes only:</strong> This prototype presents financial guidance content and does not provide personal regulated advice.
+  </div>
+
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Wealth Absorbed Insights home">
+        <span class="brand-mark">Wealth Absorbed</span>
+        <span class="brand-sub">Insights</span>
+      </a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#insights">Insights</a>
+        <a href="#resources">Resources</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="#contact">Get Access</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-card reveal is-visible">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Independent financial education</span>
+            <h1>Your wealth deserves more than generic guidance.</h1>
+            <p>
+              Wealth Absorbed Insights provides independent financial education, strategic insight, and practical guidance
+              for people who want to make better long-term decisions around planning, tax efficiency, retirement, and family wealth.
+            </p>
+            <ul class="hero-points">
+              <li>Thoughtful commentary on wealth planning, retirement strategy, and tax-aware decision making.</li>
+              <li>Educational resources designed to turn complexity into clear next steps.</li>
+              <li>Independent content built to inform first, before any personal recommendation is considered.</li>
+            </ul>
+            <div class="button-row" style="margin-top:30px;">
+              <a class="button-primary" href="#resources">Access Resources</a>
+              <a class="button-secondary" href="#about">Learn More</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Highlights">
+            <h2>Built for sophisticated financial learning</h2>
+            <div class="hero-stat">
+              <strong>01</strong>
+              <span>Independent insight across planning, retirement, taxation, and wealth preservation.</span>
+            </div>
+            <div class="hero-stat">
+              <strong>02</strong>
+              <span>Premium-style resources including guides, explainers, and tools for informed decision making.</span>
+            </div>
+            <div class="hero-stat">
+              <strong>03</strong>
+              <span>A measured educational tone with clear signposting that personal advice requires a separate process.</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="trust-card reveal">
+        <div class="trust-item">
+          <strong>Independent perspective</strong>
+          <p>Content is framed around informed judgement, long-term thinking, and clarity rather than sales-led messaging.</p>
+        </div>
+        <div class="trust-item">
+          <strong>Strategic education</strong>
+          <p>Each section is designed to support deeper understanding of planning, investment thinking, and financial decision making.</p>
+        </div>
+        <div class="trust-item">
+          <strong>Practical guidance</strong>
+          <p>Visitors can move from overview to articles, resources, and next-step enquiry points without losing clarity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="eyebrow">About us</span>
+        <h2>Independent insight for people making serious financial decisions.</h2>
+        <p>
+          Wealth Absorbed Insights is built around the idea that quality financial education should be clear, practical, and commercially neutral.
+          We focus on the questions that matter most when wealth becomes more complex and the consequences of poor decisions become more significant.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass story-card reveal">
+          <span class="eyebrow">Our perspective</span>
+          <blockquote>
+            “Clear thinking, independent judgement, and financial education that respects the complexity of real wealth.”
+          </blockquote>
+          <p>
+            Our aim is to help readers understand the tradeoffs behind planning decisions, interpret financial issues with confidence,
+            and approach important next steps with more structure and less noise.
+          </p>
+        </article>
+
+        <ul class="info-list reveal">
+          <li>
+            <strong>No unnecessary noise</strong>
+            <p>We prioritise useful explanation over jargon, marketing pressure, or generic one-size-fits-all narratives.</p>
+          </li>
+          <li>
+            <strong>Built for thoughtful readers</strong>
+            <p>The site is designed for people who want to understand their options before taking action.</p>
+          </li>
+          <li>
+            <strong>Strategy before product</strong>
+            <p>Planning, tax, retirement, and family wealth are treated as connected decisions rather than isolated transactions.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <span class="eyebrow">Core pillars</span>
+        <h2>Focused on the financial subjects that shape long-term outcomes.</h2>
+        <p>
+          Our content is organised around the areas where structured thinking, timely action, and better questions can make the greatest difference.
+        </p>
+      </div>
+
+      <div class="pillar-grid">
+        <article class="card reveal">
+          <div class="card-number">01</div>
+          <h3>Financial planning</h3>
+          <p>Guidance on structuring decisions around goals, cash flow, time horizons, family priorities, and future flexibility.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-number">02</div>
+          <h3>Tax-aware strategy</h3>
+          <p>Educational content covering allowances, wrappers, timing, and common areas where avoidable tax drag reduces outcomes.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-number">03</div>
+          <h3>Retirement and legacy</h3>
+          <p>Insight on pensions, later-life planning, wealth transfer, and the decisions that sit between security and opportunity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="section-head reveal">
+        <span class="eyebrow">Insights</span>
+        <h2>Original insight and education for more informed financial decisions.</h2>
+        <p>
+          Explore practical commentary on wealth planning, taxation, retirement strategy, and the broader decisions that shape financial resilience.
+        </p>
+      </div>
+
+      <div class="insight-grid">
+        <article class="card insight-card reveal">
+          <div class="tag-row">
+            <span class="tag">Retirement Planning</span>
+            <span>12 min read</span>
+          </div>
+          <h3>Creating a retirement strategy that balances security, flexibility, and long-term tax efficiency</h3>
+          <p>Understand how contribution choices, expected spending, time horizon, and investment assumptions interact over time.</p>
+          <a class="read-more" href="#contact">Read more</a>
+        </article>
+
+        <article class="card insight-card reveal">
+          <div class="tag-row">
+            <span class="tag">Tax Planning</span>
+            <span>10 min read</span>
+          </div>
+          <h3>Where financial plans often lose efficiency through missed allowances and poor timing</h3>
+          <p>A practical look at how tax-aware planning can improve outcomes without relying on unnecessary complexity.</p>
+          <a class="read-more" href="#contact">Read more</a>
+        </article>
+
+        <article class="card insight-card reveal">
+          <div class="tag-row">
+            <span class="tag">Family Wealth</span>
+            <span>11 min read</span>
+          </div>
+          <h3>Thinking beyond today: structuring wealth decisions with future family outcomes in mind</h3>
+          <p>From gifting and inheritance considerations to later-life support, this is where technical planning meets personal priorities.</p>
+          <a class="read-more" href="#contact">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section-head reveal">
+        <span class="eyebrow">Resources</span>
+        <h2>Premium resources designed to make complex financial topics easier to navigate.</h2>
+        <p>
+          Our resource library is built to support independent learning through in-depth guides, practical frameworks, and tools that encourage better decisions.
+        </p>
+      </div>
+
+      <div class="resource-grid">
+        <article class="card resource-card featured reveal">
+          <span class="tag">Featured guide</span>
+          <h3 style="font-size:1.7rem; margin-top:18px;">You’ve built meaningful wealth. What should come next?</h3>
+          <p>
+            A longer-form guide to structuring wealth more intentionally once assets, responsibilities, and future planning needs start to grow.
+          </p>
+          <div class="meta">
+            <span>Strategic guide</span>
+            <span>Long-form education</span>
+            <span>Downloadable resource</span>
+          </div>
+          <a class="read-more" href="#contact">Access guide</a>
+        </article>
+
+        <article class="card resource-card reveal">
+          <span class="tag">Planning tool</span>
+          <h3>Retirement cash flow planner</h3>
+          <p>A practical tool for modelling future income needs, retirement timing, and the role of different assets in supporting long-term spending.</p>
+          <div class="meta">
+            <span>Interactive planning tool</span>
+            <span>Useful starting point</span>
+          </div>
+          <a class="read-more" href="#contact">Launch tool</a>
+        </article>
+
+        <article class="card resource-card reveal">
+          <span class="tag">Explainer</span>
+          <h3>Making better pension decisions without losing sight of the wider plan</h3>
+          <p>Clear, accessible guidance on contributions, allowances, and the way pension choices fit within broader wealth strategy.</p>
+          <div class="meta">
+            <span>Evergreen resource</span>
+            <span>Planning focused</span>
+          </div>
+          <a class="read-more" href="#contact">View explainer</a>
+        </article>
+
+        <article class="card resource-card reveal">
+          <span class="tag">Checklist</span>
+          <h3>Annual planning review checklist</h3>
+          <p>A structured framework for reviewing goals, protection, investment positioning, tax allowances, and key financial decisions each year.</p>
+          <div class="meta">
+            <span>Downloadable checklist</span>
+            <span>Practical review tool</span>
+          </div>
+          <a class="read-more" href="#contact">Download checklist</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>A simple route from financial education to better-quality next steps.</h2>
+        <p>
+          We believe better advice conversations start with better-informed readers. The journey here is designed to build clarity before action.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="step reveal">
+          <div class="step-index">01</div>
+          <h3>Start with perspective</h3>
+          <p>Begin with independent educational content that frames the major issues clearly and without unnecessary noise.</p>
+        </article>
+        <article class="step reveal">
+          <div class="step-index">02</div>
+          <h3>Explore the relevant themes</h3>
+          <p>Move into deeper content covering retirement planning, tax efficiency, family wealth, and long-term financial structure.</p>
+        </article>
+        <article class="step reveal">
+          <div class="step-index">03</div>
+          <h3>Build confidence</h3>
+          <p>Use practical guides and tools to improve understanding and identify where stronger planning may be needed.</p>
+        </article>
+        <article class="step reveal">
+          <div class="step-index">04</div>
+          <h3>Take the next step</h3>
+          <p>When appropriate, move from education into a separate conversation about support, advice, or specialist introductions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Answers to common questions about the information on this page.</h2>
+        <p>
+          These answers clarify the role of the site, the purpose of the content, and how educational material differs from personal advice.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-item reveal">
+          <h3>Is this page giving regulated financial advice?</h3>
+          <p>No. The content is intended for general information, education, and guidance. Personal recommendations require an individual advice process.</p>
+        </article>
+        <article class="faq-item reveal">
+          <h3>Who is this content designed for?</h3>
+          <p>It is aimed at readers who want a clearer understanding of financial planning, tax-aware thinking, retirement strategy, and broader wealth decisions.</p>
+        </article>
+        <article class="faq-item reveal">
+          <h3>Why focus so heavily on education?</h3>
+          <p>Because stronger financial outcomes often begin with better questions, clearer understanding, and more confidence before decisions are made.</p>
+        </article>
+        <article class="faq-item reveal">
+          <h3>What happens if I want personal help?</h3>
+          <p>The educational material can help you prepare, but personal financial advice, recommendations, or introductions should sit within a separate formal process.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta" id="contact">
+      <div class="cta-panel reveal">
+        <span class="eyebrow">Next step</span>
+        <h2>Ready to explore more thoughtful financial guidance?</h2>
+        <p>
+          Get in touch to access resources, discuss the themes covered here, or explore what the right next step might look like for your situation.
+        </p>
+        <div class="button-row" style="margin-top:24px;">
+          <a class="button-primary" href="mailto:hello@wealthabsorbedinsights.com">hello@wealthabsorbedinsights.com</a>
+          <a class="button-secondary" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Wealth Absorbed Insights</div>
+        <p>
+          Independent financial education, practical planning insight, and original guidance for readers who want a clearer view of complex financial decisions.
+        </p>
+        <p style="margin-top:12px;">
+          <strong>Important:</strong> This prototype is for general information only and should not be relied on as personal financial advice.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#insights">Insights</a>
+        <a href="#resources">Resources</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <span id="yearline">© 2026 Wealth Absorbed Insights</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+    }
+  });
+}, { threshold: 0.18 });
+
+document.querySelectorAll(".reveal").forEach((element) => {
+  if (!element.classList.contains("is-visible")) {
+    observer.observe(element);
+  }
+});
+
+document.getElementById("yearline").textContent = `© ${new Date().getFullYear()} Wealth Absorbed Insights`;
+</script>
+</body>
+</html>
