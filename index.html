@@ -127,24 +127,14 @@ button {
 }
 
 .brand {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.92;
+  display: inline-flex;
+  align-items: center;
 }
 
-.brand-mark {
-  font-family: "League Spartan", sans-serif;
-  font-size: 1.9rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-}
-
-.brand-sub {
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-top: 5px;
+.brand img {
+  display: block;
+  width: auto;
+  height: 58px;
 }
 
 .nav-links {
@@ -760,18 +750,10 @@ footer {
 
   .brand {
     flex: 1 1 auto;
-    line-height: 0.9;
   }
 
-  .brand-mark {
-    font-size: 1.2rem;
-    letter-spacing: 0.01em;
-  }
-
-  .brand-sub {
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    margin-top: 4px;
+  .brand img {
+    height: 46px;
   }
 
   .nav-links {
@@ -962,8 +944,7 @@ footer {
   <div class="nav-wrap">
     <nav class="nav">
       <a class="brand" href="#top" aria-label="Your Pension Insights home">
-        <span class="brand-mark">Your Pension</span>
-        <span class="brand-sub">Insights</span>
+        <img src="assets/logo.png" alt="Your Pension Insights logo">
       </a>
       <div class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
