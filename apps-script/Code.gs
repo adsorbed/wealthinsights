@@ -104,51 +104,76 @@ function appendRow(data, crmResult) {
 function sendToGhl(data) {
   if (!GHL_API_TOKEN) return 'not configured';
 
-  // Tags carry the qualifying detail without needing custom fields set up
-  // first, and they are what the callers will actually filter on.
-  var tags = ['Website Lead'];
-  if (data.assets) tags.push('Assets: ' + data.assets);
-  if (data.resource) tags.push('Requested: ' + data.resource);
-
-  var payload = {
-    locationId: GHL_LOCATION_ID,
-    firstName: data.firstName || '',
-    lastName: data.lastName || '',
-    email: data.email || '',
-    phone: data.phone || '',
-    source: 'Pension Insights website',
-    tags: tags
-  };
-
   try {
-    var res = UrlFetchApp.fetch('https://services.leadconnectorhq.com/contacts/upsert', {
-      method: 'post',
-      contentType: 'application/json',
-      headers: {
-        Authorization: 'Bearer ' + GHL_API_TOKEN,
-        Version: GHL_API_VERSION,
-        Accept: 'application/json'
-      },
-      payload: JSON.stringify(payload),
-      muteHttpExceptions: true
+    // Upsert the core fields only. Tags are deliberately NOT sent here:
+    // upsert REPLACES the whole tag array, so a second enquiry from the same
+    // person would wipe the assets tag from their first one.
+    var res = ghlFetch('https://services.leadconnectorhq.com/contacts/upsert', {
+      locationId: GHL_LOCATION_ID,
+      firstName: data.firstName || '',
+      lastName: data.lastName || '',
+      email: data.email || '',
+      phone: data.phone || '',
+      source: 'Pension Insights website'
     });
 
     var code = res.getResponseCode();
     var body = res.getContentText();
 
-    if (code >= 200 && code < 300) {
-      var parsed = JSON.parse(body);
-      var contact = parsed.contact || {};
-      return contact.id ? ('ok · ' + contact.id) : 'ok';
+    if (code < 200 || code >= 300) {
+      console.error('GHL upsert returned ' + code + ': ' + body);
+      return 'failed (' + code + ')';
     }
 
-    console.error('GHL upsert returned ' + code + ': ' + body);
-    return 'failed (' + code + ')';
+    var contact = (JSON.parse(body).contact) || {};
+    if (!contact.id) return 'ok';
+
+    addTags(contact.id, data);
+    return 'ok · ' + contact.id;
   } catch (err) {
     // Never let a CRM outage lose the lead. The sheet row still gets written.
     console.error('GHL upsert threw: ' + err);
     return 'failed';
   }
+}
+
+/**
+ * Tags are applied through the dedicated endpoint, which appends rather than
+ * overwrites, so a returning enquirer accumulates their history instead of
+ * losing it. Qualifying detail rides on tags because they need no custom-field
+ * setup and they are what the callers actually filter on.
+ */
+function addTags(contactId, data) {
+  var tags = ['Website Lead'];
+  if (data.assets) tags.push('Assets: ' + data.assets);
+  if (data.resource) tags.push('Requested: ' + data.resource);
+
+  try {
+    var res = ghlFetch(
+      'https://services.leadconnectorhq.com/contacts/' + contactId + '/tags',
+      { tags: tags }
+    );
+    if (res.getResponseCode() >= 300) {
+      console.error('GHL tagging returned ' + res.getResponseCode() + ': ' + res.getContentText());
+    }
+  } catch (err) {
+    // A tagging failure must not fail the lead; the contact already exists.
+    console.error('GHL tagging threw: ' + err);
+  }
+}
+
+function ghlFetch(url, payload) {
+  return UrlFetchApp.fetch(url, {
+    method: 'post',
+    contentType: 'application/json',
+    headers: {
+      Authorization: 'Bearer ' + GHL_API_TOKEN,
+      Version: GHL_API_VERSION,
+      Accept: 'application/json'
+    },
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  });
 }
 
 function notify(data, crmResult) {
