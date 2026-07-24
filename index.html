@@ -1493,6 +1493,13 @@ footer {
 
         <input type="hidden" id="resource" name="resource" value="">
 
+        <!-- Honeypot. Hidden from people, irresistible to bots. Anything that
+             fills it is dropped before we send. -->
+        <div aria-hidden="true" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
         <button class="button-primary" type="submit">Get access</button>
 
         <div class="form-error" id="form-error" role="alert"></div>
@@ -1517,7 +1524,7 @@ footer {
    forwards it to GoHighLevel server-side, so the CRM webhook is never exposed
    in this file. While this is empty the form falls back to opening a
    pre-filled email, so no enquiry is ever silently lost. */
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwmmPcJ7WQFxROieJFWUvtclJCP7yM_4g1aAhalcSpke-Uixrz35JzmaR4nUnbZd4STAA/exec";
 
 const modal = document.getElementById("enquiry-modal");
 const form = document.getElementById("enquiry-form");
@@ -1596,6 +1603,15 @@ form.addEventListener("submit", async (e) => {
   errorBox.classList.remove("is-shown");
 
   const data = Object.fromEntries(new FormData(form).entries());
+
+  // Honeypot tripped: show the normal success state and send nothing.
+  if (data.company) {
+    formWrap.style.display = "none";
+    success.classList.add("is-shown");
+    form.reset();
+    return;
+  }
+  delete data.company;
 
   if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.assets) {
     errorBox.textContent = "Please complete every field so we can get this to you.";
