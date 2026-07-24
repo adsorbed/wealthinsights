@@ -1524,6 +1524,27 @@ const titleEl = document.getElementById("enquiry-title");
 const subEl = document.getElementById("enquiry-sub");
 const resourceField = document.getElementById("resource");
 let lastFocused = null;
+let scrollLockY = 0;
+
+/* Locking with overflow:hidden alone leaves the page visually offset when the
+   modal is opened from partway down. Pin the body instead and restore after. */
+function lockScroll() {
+  scrollLockY = window.scrollY;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollLockY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.overflow = "";
+  window.scrollTo(0, scrollLockY);
+}
 
 function openModal(trigger) {
   lastFocused = trigger;
@@ -1543,15 +1564,15 @@ function openModal(trigger) {
   errorBox.classList.remove("is-shown");
   modal.hidden = false;
   modal.classList.add("is-open");
-  document.body.style.overflow = "hidden";
-  document.getElementById("firstName").focus();
+  lockScroll();
+  document.getElementById("firstName").focus({ preventScroll: true });
 }
 
 function closeModal() {
   modal.classList.remove("is-open");
   modal.hidden = true;
-  document.body.style.overflow = "";
-  if (lastFocused) lastFocused.focus();
+  unlockScroll();
+  if (lastFocused) lastFocused.focus({ preventScroll: true });
 }
 
 document.querySelectorAll("[data-open-form]").forEach((el) => {
