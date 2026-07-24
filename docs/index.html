@@ -34,19 +34,16 @@
 :root {
   --ink: #241e10;
   --ink-soft: #675a31;
-  --sand: #faf6eb;
   --paper: rgba(255, 255, 255, 0.8);
   --line: rgba(84, 64, 12, 0.16);
-  --navy: #b99928;
-  --navy-deep: #7d6512;
   --gold: #b99928;
+  --gold-deep: #7d6512;
   --gold-soft: #e2c768;
-  --mint: #efe7cc;
   --shadow: 0 24px 60px rgba(84, 64, 12, 0.14);
   --radius-xl: 30px;
   --radius-lg: 22px;
-  --radius-md: 16px;
   --max: 1180px;
+  --wide: 1600px;
 }
 
 * {
@@ -87,16 +84,16 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--gold);
 }
 
 .eyebrow::before {
   content: "";
-  width: 38px;
+  width: 34px;
   height: 1px;
   background: currentColor;
   opacity: 0.35;
@@ -106,32 +103,21 @@ button {
   overflow: clip;
 }
 
-.topbar {
-  background: var(--navy-deep);
-  color: rgba(255, 255, 255, 0.84);
-  padding: 10px 20px;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-align: center;
-}
-
-.topbar strong {
-  color: #fff;
-}
+/* ---------- navigation ---------- */
 
 .nav-wrap {
   position: sticky;
   top: 0;
-  z-index: 10;
-  padding: 16px 20px 0;
+  z-index: 20;
+  padding: 16px 28px 0;
 }
 
 .nav {
-  max-width: var(--max);
+  max-width: var(--wide);
   margin: 0 auto;
-  padding: 16px 22px;
+  padding: 12px 14px 12px 24px;
   border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(250, 245, 237, 0.78);
+  background: rgba(250, 245, 237, 0.82);
   backdrop-filter: blur(16px);
   border-radius: 999px;
   box-shadow: 0 18px 40px rgba(17, 32, 50, 0.08);
@@ -153,33 +139,34 @@ button {
 .brand img {
   display: block;
   width: auto;
-  height: 94px;
+  height: 58px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 30px;
   font-size: 0.92rem;
   color: var(--ink-soft);
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  color: var(--navy);
+  color: var(--gold);
 }
 
 .nav-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 0;
   border-radius: 999px;
-  border: 1px solid transparent;
-  background: var(--navy);
+  background: var(--gold);
   color: #fff;
   font-weight: 700;
+  cursor: pointer;
   transition: transform 180ms ease, background 180ms ease;
 }
 
@@ -195,6 +182,8 @@ button {
   background: #c7a534;
 }
 
+/* ---------- buttons ---------- */
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -206,41 +195,48 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  padding: 0 24px;
+  min-height: 52px;
+  padding: 0 26px;
+  border: 0;
   border-radius: 999px;
   font-weight: 700;
+  cursor: pointer;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
 .button-primary {
-  background: var(--navy);
+  background: var(--gold);
   color: #fff;
 }
 
 .button-secondary {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.58);
-  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
 .button-secondary:hover,
 .button-secondary:focus-visible {
-  border-color: rgba(185, 153, 40, 0.36);
+  border-color: rgba(255, 255, 255, 0.7);
   transform: translateY(-1px);
 }
 
+/* ---------- hero ---------- */
+
 .hero {
-  max-width: var(--max);
-  margin: 28px auto 0;
-  padding: 0 20px;
+  max-width: var(--wide);
+  margin: 18px auto 0;
+  padding: 0 28px;
 }
 
 .hero-card {
   position: relative;
   overflow: hidden;
-  border-radius: 36px;
-  padding: 70px 56px 54px;
+  display: flex;
+  align-items: center;
+  min-height: min(600px, calc(100vh - 150px));
+  padding: 48px 54px;
+  border-radius: 40px;
   background:
     linear-gradient(135deg, rgba(95, 73, 12, 0.96), rgba(185, 153, 40, 0.88)),
     linear-gradient(120deg, rgba(255, 244, 206, 0.16), transparent 42%);
@@ -257,85 +253,90 @@ button {
 }
 
 .hero-card::before {
-  width: 280px;
-  height: 280px;
-  right: -60px;
-  top: -40px;
+  width: 300px;
+  height: 300px;
+  right: -70px;
+  top: -60px;
   background: rgba(228, 197, 150, 0.16);
 }
 
 .hero-card::after {
-  width: 220px;
-  height: 220px;
-  left: 56%;
-  bottom: -90px;
+  width: 240px;
+  height: 240px;
+  left: 58%;
+  bottom: -110px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .hero-grid {
   position: relative;
   z-index: 1;
+  width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: 34px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 48px;
+  align-items: center;
 }
 
 .hero-copy h1 {
   font-family: "League Spartan", sans-serif;
-  font-size: clamp(3.3rem, 8vw, 5.8rem);
-  line-height: 0.95;
+  font-size: clamp(2rem, 3.1vw, 3rem);
+  line-height: 1.02;
   font-weight: 700;
-  margin: 18px 0 22px;
-  max-width: 10ch;
+  margin: 14px 0 16px;
+  max-width: 17ch;
+  text-wrap: balance;
 }
 
 .hero-copy p {
-  max-width: 42rem;
-  font-size: 1.05rem;
+  max-width: 52ch;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.84);
 }
 
 .hero-points {
   list-style: none;
   display: grid;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 10px;
+  margin-top: 22px;
 }
 
 .hero-points li {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.88);
 }
 
 .hero-points li::before {
   content: "";
-  width: 10px;
-  height: 10px;
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--gold-soft);
-  box-shadow: 0 0 0 6px rgba(228, 197, 150, 0.12);
+  box-shadow: 0 0 0 5px rgba(228, 197, 150, 0.12);
 }
 
 .hero-panel {
-  padding: 26px;
-  border-radius: 28px;
+  padding: 24px;
+  border-radius: 26px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .hero-panel h2 {
-  font-size: 1.1rem;
-  margin-bottom: 18px;
+  font-size: 1rem;
+  margin-bottom: 14px;
 }
 
 .hero-stat {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding: 14px 0;
+  padding: 11px 0;
+  font-size: 0.9rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -345,31 +346,29 @@ button {
 }
 
 .hero-stat strong {
-  min-width: 86px;
-  font-size: 2rem;
+  min-width: 40px;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--gold-soft);
 }
 
+/* ---------- trust strip ---------- */
+
 .trust-strip {
-  max-width: var(--max);
+  max-width: var(--wide);
   margin: 22px auto 0;
-  padding: 0 20px;
+  padding: 0 28px;
 }
 
 .trust-card {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  padding: 22px 24px;
+  padding: 22px 26px;
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.68);
   border: 1px solid rgba(17, 32, 50, 0.08);
   box-shadow: 0 16px 30px rgba(17, 32, 50, 0.06);
-}
-
-.trust-item {
-  padding: 8px 0;
 }
 
 .trust-item strong {
@@ -378,10 +377,12 @@ button {
   margin-bottom: 6px;
 }
 
+/* ---------- sections ---------- */
+
 .section {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 92px 20px 0;
+  padding: 88px 28px 0;
 }
 
 .section-head {
@@ -391,15 +392,16 @@ button {
 
 .section-head h2 {
   font-family: "League Spartan", sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 0.98;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.0;
   font-weight: 700;
-  margin: 14px 0 14px;
+  margin: 14px 0;
+  text-wrap: balance;
 }
 
 .section-head p {
   color: var(--ink-soft);
-  font-size: 1.04rem;
+  font-size: 1.02rem;
 }
 
 .about-grid,
@@ -437,10 +439,10 @@ button {
 
 .story-card blockquote {
   font-family: "League Spartan", sans-serif;
-  font-size: 2.1rem;
-  line-height: 1.02;
-  color: var(--navy);
-  margin: 18px 0 18px;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  color: var(--gold);
+  margin: 18px 0;
 }
 
 .story-card p,
@@ -471,7 +473,7 @@ footer p {
 .faq-item h3,
 .cta-panel h2 {
   display: block;
-  font-size: 1.08rem;
+  font-size: 1.06rem;
   margin-bottom: 8px;
 }
 
@@ -492,8 +494,8 @@ footer p {
   height: 44px;
   margin-bottom: 20px;
   border-radius: 14px;
-  background: rgba(22, 58, 95, 0.08);
-  color: var(--navy);
+  background: rgba(185, 153, 40, 0.12);
+  color: var(--gold);
   font-weight: 800;
 }
 
@@ -521,7 +523,7 @@ footer p {
   padding: 0 10px;
   border-radius: 999px;
   background: rgba(185, 153, 40, 0.12);
-  color: var(--navy);
+  color: var(--gold);
   font-weight: 700;
 }
 
@@ -530,8 +532,12 @@ footer p {
   align-items: center;
   gap: 10px;
   margin-top: 18px;
+  padding: 0;
+  border: 0;
+  background: none;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--gold);
+  cursor: pointer;
 }
 
 .read-more::after {
@@ -560,9 +566,12 @@ footer p {
 }
 
 .resource-card.featured p,
-.resource-card.featured .read-more,
 .resource-card.featured .meta {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.resource-card.featured .read-more {
+  color: #fff;
 }
 
 .resource-card.featured .tag {
@@ -600,7 +609,7 @@ footer p {
   margin-bottom: 18px;
   border-radius: 18px;
   background: linear-gradient(135deg, rgba(185, 153, 40, 0.12), rgba(226, 199, 104, 0.28));
-  color: var(--navy);
+  color: var(--gold);
   font-weight: 800;
 }
 
@@ -613,6 +622,12 @@ footer p {
   border-radius: 24px;
   border: 1px solid rgba(17, 32, 50, 0.08);
   background: rgba(255, 255, 255, 0.76);
+}
+
+.faq-item a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .cta {
@@ -630,24 +645,27 @@ footer p {
   border: 1px solid rgba(17, 32, 50, 0.08);
 }
 
-.cta-panel::after {
-  content: "";
-  position: absolute;
-  inset: auto -40px -70px auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: rgba(22, 58, 95, 0.08);
+.cta-panel .button-secondary {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
 }
 
+.cta-panel .button-secondary:hover,
+.cta-panel .button-secondary:focus-visible {
+  border-color: rgba(185, 153, 40, 0.36);
+}
+
+/* ---------- footer ---------- */
+
 footer {
-  padding: 0 20px 36px;
+  padding: 0 28px 36px;
 }
 
 .footer-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 28px 30px;
+  padding: 28px 0 0;
   border-top: 1px solid rgba(17, 32, 50, 0.1);
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -658,6 +676,10 @@ footer {
   font-family: "League Spartan", sans-serif;
   font-size: 2rem;
   margin-bottom: 10px;
+}
+
+.footer-inner p {
+  font-size: 0.88rem;
 }
 
 .footer-links {
@@ -671,8 +693,190 @@ footer {
 
 .footer-links a:hover,
 .footer-links a:focus-visible {
-  color: var(--navy);
+  color: var(--gold);
 }
+
+/* ---------- enquiry modal ---------- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(36, 30, 16, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 34px;
+  border-radius: 28px;
+  background: #fffcf4;
+  box-shadow: 0 40px 90px rgba(36, 30, 16, 0.35);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+  background: rgba(185, 153, 40, 0.12);
+  color: var(--ink);
+}
+
+.modal-card h2 {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.85rem;
+  line-height: 1.05;
+  font-weight: 700;
+  margin: 12px 0 8px;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.modal-card > p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23675a31' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.modal .button-primary {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-note {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.form-note a {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form-error {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(168, 46, 32, 0.08);
+  color: #8c2b1c;
+  font-size: 0.86rem;
+}
+
+.form-error.is-shown {
+  display: block;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 14px 0 6px;
+}
+
+.form-success.is-shown {
+  display: block;
+}
+
+.form-success .tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: rgba(185, 153, 40, 0.14);
+  color: var(--gold);
+  font-size: 1.7rem;
+}
+
+/* ---------- reveal ---------- */
 
 .reveal {
   opacity: 0;
@@ -685,7 +889,19 @@ footer {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- responsive ---------- */
+
 @media (max-width: 1080px) {
+  .hero-card {
+    min-height: 0;
+    padding: 40px 30px;
+  }
+
   .hero-grid,
   .about-grid,
   .trust-card,
@@ -697,12 +913,15 @@ footer {
   .footer-inner {
     grid-template-columns: 1fr;
   }
+
+  .hero-grid { gap: 30px; }
+  .hero-copy h1 { font-size: clamp(2rem, 5vw, 2.8rem); max-width: none; }
 }
 
 @media (max-width: 820px) {
   .nav {
     border-radius: 30px;
-    padding: 16px 18px;
+    padding: 12px 12px 12px 18px;
     flex-wrap: nowrap;
   }
 
@@ -712,80 +931,36 @@ footer {
     font-size: 0.84rem;
   }
 
-  .hero-card {
-    padding: 42px 24px 26px;
-    border-radius: 28px;
-  }
-
-  .hero-copy h1 {
-    max-width: none;
-    font-size: clamp(2.9rem, 11vw, 4.4rem);
-  }
-
-  .hero-copy p {
-    font-size: 0.98rem;
-  }
-
-  .hero-points {
-    margin-top: 22px;
-    gap: 12px;
-  }
-
-  .section {
-    padding-top: 72px;
-  }
+  .section { padding-top: 68px; }
 
   .glass,
   .card,
   .faq-item,
   .step,
-  .cta-panel {
-    padding: 24px;
-  }
+  .cta-panel { padding: 24px; }
 
-  .footer-links {
-    justify-content: flex-start;
-  }
+  .footer-links { justify-content: flex-start; }
 }
 
 @media (max-width: 560px) {
-  .topbar {
-    font-size: 0.65rem;
-    line-height: 1.5;
-    padding: 9px 14px;
-  }
-
-  .nav-wrap {
-    padding: 10px 14px 0;
-  }
+  .nav-wrap { padding: 10px 14px 0; }
 
   .nav {
     position: relative;
-    padding: 14px 16px;
+    padding: 10px 10px 10px 14px;
     border-radius: 22px;
-    gap: 12px;
-    align-items: center;
+    gap: 10px;
   }
 
-  .brand {
-    flex: 1 1 auto;
-  }
-
-  .brand img {
-    height: 72px;
-  }
-
-  .nav-links {
-    display: none;
-  }
+  .brand { flex: 1 1 auto; }
+  .brand img { height: 46px; }
+  .nav-links { display: none; }
 
   .nav-cta {
     order: 2;
-    width: auto;
     min-height: 38px;
     padding: 0 14px;
     font-size: 0.8rem;
-    letter-spacing: 0.01em;
   }
 
   .nav-menu {
@@ -808,9 +983,7 @@ footer {
     list-style: none;
   }
 
-  .nav-toggle::-webkit-details-marker {
-    display: none;
-  }
+  .nav-toggle::-webkit-details-marker { display: none; }
 
   .nav-toggle span,
   .nav-toggle::before,
@@ -824,21 +997,10 @@ footer {
     transition: transform 180ms ease, opacity 180ms ease;
   }
 
-  .nav-toggle span {
-    margin: 4px 0;
-  }
-
-  .nav-menu[open] .nav-toggle::before {
-    transform: translateY(6px) rotate(45deg);
-  }
-
-  .nav-menu[open] .nav-toggle span {
-    opacity: 0;
-  }
-
-  .nav-menu[open] .nav-toggle::after {
-    transform: translateY(-6px) rotate(-45deg);
-  }
+  .nav-toggle span { margin: 4px 0; }
+  .nav-menu[open] .nav-toggle::before { transform: translateY(6px) rotate(45deg); }
+  .nav-menu[open] .nav-toggle span { opacity: 0; }
+  .nav-menu[open] .nav-toggle::after { transform: translateY(-6px) rotate(-45deg); }
 
   .nav-dropdown {
     position: absolute;
@@ -855,7 +1017,7 @@ footer {
 
   .nav-dropdown a {
     display: block;
-    padding: 12px 12px;
+    padding: 12px;
     border-radius: 12px;
     font-size: 0.92rem;
     color: var(--ink-soft);
@@ -871,110 +1033,67 @@ footer {
   .trust-strip,
   .section,
   footer {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .button-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .button-primary,
-  .button-secondary,
-  .nav-cta {
-    width: 100%;
-  }
-
-  .nav-cta {
-    width: auto;
-  }
-
-  .hero {
-    margin-top: 18px;
-  }
+  .hero { margin-top: 14px; }
 
   .hero-card {
-    padding: 30px 18px 22px;
-    border-radius: 24px;
+    padding: 30px 20px;
+    border-radius: 26px;
   }
 
-  .eyebrow {
-    gap: 8px;
-    font-size: 0.64rem;
-    letter-spacing: 0.17em;
-  }
+  .button-row { flex-direction: column; align-items: stretch; }
+  .button-primary, .button-secondary { width: 100%; }
 
-  .eyebrow::before {
-    width: 24px;
-  }
+  .eyebrow { gap: 8px; font-size: 0.62rem; letter-spacing: 0.17em; }
+  .eyebrow::before { width: 22px; }
 
-  .hero-copy h1 {
-    font-size: clamp(2.35rem, 14vw, 3.35rem);
-    line-height: 0.97;
-    margin: 14px 0 18px;
-  }
+  .hero-copy h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); margin: 12px 0 14px; }
+  .hero-copy p { font-size: 0.94rem; }
+  .hero-panel { padding: 20px 18px; border-radius: 22px; }
 
-  .hero-copy p {
-    font-size: 0.94rem;
-  }
-
-  .hero-panel {
-    padding: 20px 18px;
-    border-radius: 22px;
-  }
-
-  .hero-stat strong {
-    min-width: 64px;
-    font-size: 1.55rem;
-  }
-
-  .trust-card {
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .section-head h2 {
-    font-size: 2rem;
-    line-height: 1.02;
-  }
-
-  .story-card blockquote {
-    font-size: 1.45rem;
-  }
+  .trust-card { padding: 18px; border-radius: 22px; }
+  .section-head h2 { font-size: 1.9rem; }
+  .story-card blockquote { font-size: 1.4rem; }
 
   .section-head p,
   .card p,
   .faq-item p,
   .step p,
   .cta-panel p,
-  footer p {
-    font-size: 0.94rem;
-  }
+  footer p { font-size: 0.94rem; }
+
+  .modal { padding: 14px; }
+  .modal-card { padding: 26px 20px; border-radius: 22px; }
+  .modal-card h2 { font-size: 1.5rem; }
+  .field-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 <div class="site-shell">
+
   <div class="nav-wrap">
     <nav class="nav">
       <a class="brand" href="#top" aria-label="Your Pension Insights home">
         <img src="assets/logo.png" alt="Your Pension Insights logo">
       </a>
       <div class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#insights">Insights</a>
-        <a href="#resources">Resources</a>
-        <a href="#faq">FAQ</a>
+        <a href="#about">Approach</a>
+        <a href="#insights">Briefings</a>
+        <a href="#resources">Toolkit</a>
+        <a href="#faq">Questions</a>
       </div>
-      <a class="nav-cta" href="#contact">Get Access</a>
+      <button class="nav-cta" type="button" data-open-form data-resource="General enquiry">Get access</button>
       <details class="nav-menu">
         <summary class="nav-toggle" aria-label="Open navigation menu"><span></span></summary>
         <div class="nav-dropdown">
-          <a href="#about">About</a>
-          <a href="#insights">Insights</a>
-          <a href="#resources">Resources</a>
-          <a href="#faq">FAQ</a>
+          <a href="#about">Approach</a>
+          <a href="#insights">Briefings</a>
+          <a href="#resources">Toolkit</a>
+          <a href="#faq">Questions</a>
         </div>
       </details>
     </nav>
@@ -982,39 +1101,39 @@ footer {
 
   <main id="top">
     <section class="hero">
-      <div class="hero-card reveal is-visible">
+      <div class="hero-card">
         <div class="hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">Independent financial education</span>
-            <h1>Your pension deserves more than generic guidance.</h1>
+            <span class="eyebrow">Education before decisions</span>
+            <h1>A pension pot is not a retirement income.</h1>
             <p>
-              Your Pension Insights provides independent pension education, retirement-focused insight, and practical guidance
-              for people who want to make better long-term decisions around pensions, tax efficiency, retirement timing, and later-life planning.
+              Most people plan around the balance on the statement. What decides your retirement is what that balance actually
+              pays you, for how long, and how much of it survives tax along the way.
             </p>
             <ul class="hero-points">
-              <li>Thoughtful commentary on pension planning, retirement strategy, and tax-aware decision making.</li>
-              <li>Educational resources designed to turn complexity into clear next steps.</li>
-              <li>Independent content built to inform first, before any personal recommendation is considered.</li>
+              <li>What your pot converts into as income, year by year.</li>
+              <li>Where tax quietly takes more than it needs to.</li>
+              <li>The decisions that are difficult to reverse once made.</li>
             </ul>
-            <div class="button-row" style="margin-top:30px;">
-              <a class="button-primary" href="#resources">Access Resources</a>
-              <a class="button-secondary" href="#about">Learn More</a>
+            <div class="button-row" style="margin-top:26px;">
+              <button class="button-primary" type="button" data-open-form data-resource="Hero">Get access</button>
+              <a class="button-secondary" href="#about">See what we cover</a>
             </div>
           </div>
 
-          <aside class="hero-panel" aria-label="Highlights">
-            <h2>Built for sophisticated financial learning</h2>
+          <aside class="hero-panel" aria-label="What you will find here">
+            <h2>What you'll find here</h2>
             <div class="hero-stat">
               <strong>01</strong>
-              <span>Independent insight across pensions, retirement, taxation, and long-term financial planning.</span>
+              <span>Plain explanation of pensions, tax and retirement income.</span>
             </div>
             <div class="hero-stat">
               <strong>02</strong>
-              <span>Premium-style resources including guides, explainers, and tools for informed decision making.</span>
+              <span>Guides, checklists and planning tools you can actually use.</span>
             </div>
             <div class="hero-stat">
               <strong>03</strong>
-              <span>A measured educational tone with clear signposting that personal advice requires a separate process.</span>
+              <span>No products, no sales, and no personal recommendations.</span>
             </div>
           </aside>
         </div>
@@ -1024,27 +1143,27 @@ footer {
     <section class="trust-strip">
       <div class="trust-card reveal">
         <div class="trust-item">
-          <strong>Independent perspective</strong>
-          <p>Content is framed around informed judgement, long-term thinking, and clarity rather than sales-led messaging.</p>
+          <strong>Commercially neutral</strong>
+          <p>We don't sell products and we don't manage money, so nothing here is written to move you toward a sale.</p>
         </div>
         <div class="trust-item">
-          <strong>Strategic education</strong>
-          <p>Each section is designed to support deeper understanding of planning, investment thinking, and financial decision making.</p>
+          <strong>Written for the decision</strong>
+          <p>Each piece is built around a choice you will actually have to make, not around a topic that sounds interesting.</p>
         </div>
         <div class="trust-item">
-          <strong>Practical guidance</strong>
-          <p>Visitors can move from overview to articles, resources, and next-step enquiry points without losing clarity.</p>
+          <strong>Clear about the limits</strong>
+          <p>Education takes you a long way. We say plainly where it stops and personal advice has to begin.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="section-head reveal">
-        <span class="eyebrow">About us</span>
+        <span class="eyebrow">Our approach</span>
         <h2>Independent insight for people making serious financial decisions.</h2>
         <p>
-          Your Pension Insights is built around the idea that pension education should be clear, practical, and commercially neutral.
-          We focus on the questions that matter most when retirement planning becomes more important and the consequences of poor decisions become more significant.
+          Your Pension Insights exists because pension education is usually either too shallow to be useful or too technical to
+          be readable. We aim for the space in between: enough detail to change what you do, written so you can follow it.
         </p>
       </div>
 
@@ -1052,26 +1171,26 @@ footer {
         <article class="glass story-card reveal">
           <span class="eyebrow">Our perspective</span>
           <blockquote>
-            “Clear thinking, independent judgement, and pension education that respects the weight of retirement decisions.”
+            “The costliest pension decisions are rarely dramatic. They are quiet, reversible for a while, and then suddenly not.”
           </blockquote>
           <p>
-            Our aim is to help readers understand the tradeoffs behind pension decisions, interpret retirement issues with confidence,
-            and approach important next steps with more structure and less noise.
+            Our aim is to help you understand the trade-offs behind each choice, recognise which ones have a deadline attached,
+            and arrive at any conversation about advice already knowing what you want to ask.
           </p>
         </article>
 
         <ul class="info-list reveal">
           <li>
             <strong>No unnecessary noise</strong>
-            <p>We prioritise useful explanation over jargon, marketing pressure, or generic one-size-fits-all narratives.</p>
+            <p>Useful explanation over jargon, marketing pressure, or generic one-size-fits-all narratives.</p>
           </li>
           <li>
             <strong>Built for thoughtful readers</strong>
-            <p>The site is designed for people who want to understand their pension options before taking action.</p>
+            <p>For people who want to understand their options properly before they act on any of them.</p>
           </li>
           <li>
             <strong>Strategy before product</strong>
-            <p>Pensions, tax, retirement timing, and later-life income are treated as connected decisions rather than isolated transactions.</p>
+            <p>Pensions, tax, retirement timing and later-life income are connected decisions, not isolated transactions.</p>
           </li>
         </ul>
       </div>
@@ -1082,7 +1201,8 @@ footer {
         <span class="eyebrow">Core pillars</span>
         <h2>Focused on the pension questions that shape long-term outcomes.</h2>
         <p>
-          Our content is organised around the areas where structured thinking, timely action, and better questions can make the greatest difference to retirement outcomes.
+          Our content is organised around the areas where structured thinking and timely action make the greatest difference to
+          what you end up with.
         </p>
       </div>
 
@@ -1090,27 +1210,28 @@ footer {
         <article class="card reveal">
           <div class="card-number">01</div>
           <h3>Pension planning</h3>
-          <p>Guidance on structuring decisions around contributions, retirement timing, income needs, and long-term flexibility.</p>
+          <p>Structuring decisions around contributions, retirement timing, income needs, and keeping future options open.</p>
         </article>
         <article class="card reveal">
           <div class="card-number">02</div>
           <h3>Tax-aware strategy</h3>
-          <p>Educational content covering allowances, wrappers, timing, and common areas where avoidable tax drag reduces outcomes.</p>
+          <p>Allowances, wrappers, timing, and the common places where avoidable tax drag quietly reduces outcomes.</p>
         </article>
         <article class="card reveal">
           <div class="card-number">03</div>
           <h3>Retirement and later life</h3>
-          <p>Insight on pensions, later-life planning, income sustainability, and the decisions that sit between security and flexibility.</p>
+          <p>Income sustainability, estate considerations, and the decisions that sit between security and flexibility.</p>
         </article>
       </div>
     </section>
 
     <section class="section" id="insights">
       <div class="section-head reveal">
-        <span class="eyebrow">Insights</span>
+        <span class="eyebrow">Briefings</span>
         <h2>Original insight and education for more informed financial decisions.</h2>
         <p>
-          Explore practical commentary on pensions, taxation, retirement strategy, and the broader decisions that shape long-term financial resilience.
+          Practical commentary on pensions, taxation, retirement strategy, and the broader decisions that shape long-term
+          financial resilience.
         </p>
       </div>
 
@@ -1121,8 +1242,8 @@ footer {
             <span>12 min read</span>
           </div>
           <h3>Creating a retirement strategy that balances security, flexibility, and long-term tax efficiency</h3>
-          <p>Understand how contribution choices, expected spending, time horizon, and investment assumptions interact over time.</p>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Retirement%20strategy%20insight">Request this insight</a>
+          <p>How contribution choices, expected spending, time horizon and investment assumptions interact over time.</p>
+          <button class="read-more" type="button" data-open-form data-resource="Briefing: retirement strategy">Request this briefing</button>
         </article>
 
         <article class="card insight-card reveal">
@@ -1131,8 +1252,8 @@ footer {
             <span>10 min read</span>
           </div>
           <h3>Where financial plans often lose efficiency through missed allowances and poor timing</h3>
-          <p>A practical look at how tax-aware planning can improve outcomes without relying on unnecessary complexity.</p>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Tax%20planning%20insight">Request this insight</a>
+          <p>A practical look at how tax-aware planning improves outcomes without relying on unnecessary complexity.</p>
+          <button class="read-more" type="button" data-open-form data-resource="Briefing: tax efficiency">Request this briefing</button>
         </article>
 
         <article class="card insight-card reveal">
@@ -1141,67 +1262,68 @@ footer {
             <span>11 min read</span>
           </div>
           <h3>Thinking beyond today: structuring pension decisions with future retirement outcomes in mind</h3>
-          <p>From income sustainability and withdrawal choices to later-life security, this is where technical planning meets personal priorities.</p>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Later-life%20planning%20insight">Request this insight</a>
+          <p>From income sustainability and withdrawal choices to later-life security and what passes on.</p>
+          <button class="read-more" type="button" data-open-form data-resource="Briefing: later life">Request this briefing</button>
         </article>
       </div>
     </section>
 
     <section class="section" id="resources">
       <div class="section-head reveal">
-        <span class="eyebrow">Resources</span>
-        <h2>Premium resources designed to make complex financial topics easier to navigate.</h2>
+        <span class="eyebrow">Toolkit</span>
+        <h2>Practical resources that make complex financial topics easier to navigate.</h2>
         <p>
-          Our resource library is built to support independent learning through in-depth guides, practical frameworks, and tools that encourage better decisions.
+          In-depth guides, planning frameworks and tools built to support independent learning and better-quality decisions.
         </p>
       </div>
 
       <div class="resource-grid">
         <article class="card resource-card featured reveal">
           <span class="tag">Featured guide</span>
-          <h3 style="font-size:1.7rem; margin-top:18px;">You’ve built a meaningful pension. What should come next?</h3>
+          <h3 style="font-size:1.7rem; margin-top:18px;">You've built a meaningful pension. What should come next?</h3>
           <p>
-            A longer-form guide to structuring retirement planning more intentionally once pension balances, responsibilities, and future income needs start to grow.
+            A longer-form guide to structuring retirement planning once pension balances, responsibilities and future income
+            needs start to grow.
           </p>
           <div class="meta">
             <span>Strategic guide</span>
             <span>Long-form education</span>
             <span>Downloadable resource</span>
           </div>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Featured%20guide%20request">Request this guide</a>
+          <button class="read-more" type="button" data-open-form data-resource="Featured guide">Request this guide</button>
         </article>
 
         <article class="card resource-card reveal">
           <span class="tag">Planning tool</span>
           <h3>Retirement cash flow planner</h3>
-          <p>A practical tool for modelling future income needs, retirement timing, and the role of pension assets in supporting long-term spending.</p>
+          <p>Model future income needs, retirement timing, and the role pension assets play in supporting long-term spending.</p>
           <div class="meta">
             <span>Interactive planning tool</span>
             <span>Useful starting point</span>
           </div>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Retirement%20cash%20flow%20planner">Request access</a>
+          <button class="read-more" type="button" data-open-form data-resource="Retirement cash flow planner">Request access</button>
         </article>
 
         <article class="card resource-card reveal">
           <span class="tag">Explainer</span>
           <h3>Making better pension decisions without losing sight of the wider plan</h3>
-          <p>Clear, accessible guidance on contributions, allowances, and the way pension choices fit within broader retirement strategy.</p>
+          <p>Accessible guidance on contributions, allowances, and how pension choices fit within a broader retirement strategy.</p>
           <div class="meta">
             <span>Evergreen resource</span>
             <span>Planning focused</span>
           </div>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Pension%20decisions%20explainer">Request this explainer</a>
+          <button class="read-more" type="button" data-open-form data-resource="Pension decisions explainer">Request this explainer</button>
         </article>
 
         <article class="card resource-card reveal">
           <span class="tag">Checklist</span>
           <h3>Annual planning review checklist</h3>
-          <p>A structured framework for reviewing goals, protection, investment positioning, tax allowances, and key financial decisions each year.</p>
+          <p>A structured framework for reviewing goals, protection, investment positioning, tax allowances and key decisions each year.</p>
           <div class="meta">
             <span>Downloadable checklist</span>
             <span>Practical review tool</span>
           </div>
-          <a class="read-more" href="mailto:info@pensioninsights.co.uk?subject=Annual%20planning%20review%20checklist">Request this checklist</a>
+          <button class="read-more" type="button" data-open-form data-resource="Annual review checklist">Request this checklist</button>
         </article>
       </div>
     </section>
@@ -1211,7 +1333,8 @@ footer {
         <span class="eyebrow">How it works</span>
         <h2>A simple route from financial education to better-quality next steps.</h2>
         <p>
-          We believe better retirement decisions start with better-informed readers. The journey here is designed to build clarity before action.
+          Better retirement decisions start with better-informed readers. The journey here is designed to build clarity before
+          action.
         </p>
       </div>
 
@@ -1224,7 +1347,7 @@ footer {
         <article class="step reveal">
           <div class="step-index">02</div>
           <h3>Explore the relevant themes</h3>
-          <p>Move into deeper content covering pension planning, tax efficiency, retirement income, and long-term financial structure.</p>
+          <p>Move into deeper content on pension planning, tax efficiency, retirement income and long-term structure.</p>
         </article>
         <article class="step reveal">
           <div class="step-index">03</div>
@@ -1241,33 +1364,38 @@ footer {
 
     <section class="section" id="faq">
       <div class="section-head reveal">
-        <span class="eyebrow">FAQ</span>
+        <span class="eyebrow">Questions</span>
         <h2>Answers to common questions about the information on this page.</h2>
         <p>
-          These answers clarify the role of the site, the purpose of the content, and how educational material differs from personal advice.
+          These clarify the role of the site, the purpose of the content, and how educational material differs from personal
+          advice.
         </p>
       </div>
 
       <div class="faq-grid">
         <article class="faq-item reveal">
           <h3>Is this page giving regulated financial advice?</h3>
-          <p>No. The content is intended for general information, education, and guidance. Personal recommendations require an individual advice process.</p>
+          <p>No. The content is general information, education and guidance. Personal recommendations require an individual advice process.</p>
         </article>
         <article class="faq-item reveal">
           <h3>Who is this content designed for?</h3>
-          <p>It is aimed at readers who want a clearer understanding of pension planning, tax-aware thinking, retirement strategy, and broader later-life financial decisions.</p>
+          <p>Readers who want a clearer understanding of pension planning, tax-aware thinking, retirement strategy and later-life financial decisions.</p>
         </article>
         <article class="faq-item reveal">
           <h3>Why focus so heavily on education?</h3>
-          <p>Because stronger financial outcomes often begin with better questions, clearer understanding, and more confidence before decisions are made.</p>
+          <p>Because stronger outcomes usually begin with better questions, clearer understanding, and more confidence before decisions are made.</p>
         </article>
         <article class="faq-item reveal">
           <h3>What happens if I want personal help?</h3>
-          <p>If you ask us to, we will introduce you to one independent financial adviser firm that is authorised and regulated by the FCA, and we will tell you which firm it is. There is no charge to you, and you are never obliged to proceed.</p>
+          <p>If you ask us to, we introduce you to one independent financial adviser firm authorised and regulated by the FCA, and we tell you which firm. There is no charge to you and no obligation to proceed.</p>
         </article>
         <article class="faq-item reveal">
           <h3>How do you make money?</h3>
-          <p>Adviser firms pay us for arranging the introduction. That does not increase what you pay, and we are not paid according to what you buy or how much you invest. Full detail is in our <a href="terms.html" style="color:var(--navy); text-decoration:underline;">Terms of Use</a>.</p>
+          <p>Adviser firms pay us for arranging the introduction. That does not increase what you pay, and we are not paid according to what you buy or how much you invest. Full detail in our <a href="/terms.html">Terms of Use</a>.</p>
+        </article>
+        <article class="faq-item reveal">
+          <h3>What happens to my details?</h3>
+          <p>They are used to send you what you asked for and, where you ask us to, to arrange an introduction. We never sell them or pass them to a panel of firms. See our <a href="/privacy.html">Privacy Policy</a>.</p>
         </article>
       </div>
     </section>
@@ -1277,11 +1405,12 @@ footer {
         <span class="eyebrow">Next step</span>
         <h2>Ready to explore more thoughtful financial guidance?</h2>
         <p>
-          Get in touch to access resources, discuss the themes covered here, or explore what the right next step might look like for your situation.
+          Request access to the guides and tools, or tell us what you are trying to work out and we will point you at the right
+          starting place.
         </p>
         <div class="button-row" style="margin-top:24px;">
-          <a class="button-primary" href="mailto:info@pensioninsights.co.uk">info@pensioninsights.co.uk</a>
-          <a class="button-secondary" href="#top">Back to top</a>
+          <button class="button-primary" type="button" data-open-form data-resource="Footer CTA">Get access</button>
+          <a class="button-secondary" href="mailto:info@pensioninsights.co.uk">info@pensioninsights.co.uk</a>
         </div>
       </div>
     </section>
@@ -1299,37 +1428,205 @@ footer {
           personal recommendations. Content on this site is general information only. Where you ask us to, we introduce you to
           independent financial advisers who are authorised and regulated by the FCA. The value of investments can fall as well
           as rise and you may get back less than you invested. Tax treatment depends on your individual circumstances and may
-          change in future. Full details in our <a href="terms.html" style="color:var(--navy);">Terms of Use</a>.
+          change in future. Full details in our <a href="/terms.html" style="color:var(--gold);">Terms of Use</a>.
         </p>
       </div>
 
       <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#insights">Insights</a>
-        <a href="#resources">Resources</a>
-        <a href="#faq">FAQ</a>
+        <a href="#about">Approach</a>
+        <a href="#insights">Briefings</a>
+        <a href="#resources">Toolkit</a>
+        <a href="#faq">Questions</a>
         <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
         <span id="yearline">© 2026 Your Pension Insights</span>
       </div>
     </div>
   </footer>
 </div>
 
+<!-- enquiry modal -->
+<div class="modal" id="enquiry-modal" role="dialog" aria-modal="true" aria-labelledby="enquiry-title" hidden>
+  <div class="modal-backdrop" data-close-form></div>
+  <div class="modal-card">
+    <button class="modal-close" type="button" data-close-form aria-label="Close">&times;</button>
+
+    <div id="enquiry-form-wrap">
+      <span class="eyebrow">Request access</span>
+      <h2 id="enquiry-title">Get your insights</h2>
+      <p id="enquiry-sub">Tell us where to send it and we'll get it straight over to you.</p>
+
+      <form id="enquiry-form" novalidate>
+        <div class="field-grid">
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
+          </div>
+          <div class="field full">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field full">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="field full">
+            <label for="assets">Investable assets</label>
+            <select id="assets" name="assets" required>
+              <option value="" disabled selected>Please select a range</option>
+              <option>Under £100,000</option>
+              <option>£100,000 – £250,000</option>
+              <option>£250,000 – £500,000</option>
+              <option>£500,000 – £1,000,000</option>
+              <option>Over £1,000,000</option>
+            </select>
+          </div>
+        </div>
+
+        <input type="hidden" id="resource" name="resource" value="">
+
+        <button class="button-primary" type="submit">Get access</button>
+
+        <div class="form-error" id="form-error" role="alert"></div>
+
+        <p class="form-note">
+          Your information is secure and will only be used to provide you with relevant financial insights.
+          See our <a href="/privacy.html">Privacy Policy</a>.
+        </p>
+      </form>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="tick" aria-hidden="true">✓</div>
+      <h2>Thank you</h2>
+      <p>We've got your details and will be in touch shortly with what you asked for.</p>
+    </div>
+  </div>
+</div>
+
 <script>
+/* Where enquiries are sent. Paste a form endpoint (e.g. Formspree) here.
+   While this is empty the form falls back to opening a pre-filled email,
+   so no enquiry is ever silently lost. */
+const FORM_ENDPOINT = "";
+
+const modal = document.getElementById("enquiry-modal");
+const form = document.getElementById("enquiry-form");
+const formWrap = document.getElementById("enquiry-form-wrap");
+const success = document.getElementById("form-success");
+const errorBox = document.getElementById("form-error");
+const titleEl = document.getElementById("enquiry-title");
+const subEl = document.getElementById("enquiry-sub");
+const resourceField = document.getElementById("resource");
+let lastFocused = null;
+
+function openModal(trigger) {
+  lastFocused = trigger;
+  const resource = trigger.getAttribute("data-resource") || "General enquiry";
+  resourceField.value = resource;
+
+  if (resource.startsWith("Briefing:") || resource.indexOf("guide") > -1 || resource.indexOf("checklist") > -1 || resource.indexOf("planner") > -1 || resource.indexOf("explainer") > -1) {
+    titleEl.textContent = "Request this resource";
+    subEl.textContent = "Tell us where to send it and we'll get it straight over to you.";
+  } else {
+    titleEl.textContent = "Get your insights";
+    subEl.textContent = "Tell us a little about your situation and we'll send you the most relevant material.";
+  }
+
+  formWrap.style.display = "";
+  success.classList.remove("is-shown");
+  errorBox.classList.remove("is-shown");
+  modal.hidden = false;
+  modal.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+  document.getElementById("firstName").focus();
+}
+
+function closeModal() {
+  modal.classList.remove("is-open");
+  modal.hidden = true;
+  document.body.style.overflow = "";
+  if (lastFocused) lastFocused.focus();
+}
+
+document.querySelectorAll("[data-open-form]").forEach((el) => {
+  el.addEventListener("click", () => openModal(el));
+});
+
+document.querySelectorAll("[data-close-form]").forEach((el) => {
+  el.addEventListener("click", closeModal);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errorBox.classList.remove("is-shown");
+
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.assets) {
+    errorBox.textContent = "Please complete every field so we can get this to you.";
+    errorBox.classList.add("is-shown");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    errorBox.textContent = "That email address doesn't look right. Please check it and try again.";
+    errorBox.classList.add("is-shown");
+    return;
+  }
+
+  const button = form.querySelector("button[type=submit]");
+  button.disabled = true;
+  button.textContent = "Sending…";
+
+  const showSuccess = () => {
+    formWrap.style.display = "none";
+    success.classList.add("is-shown");
+    form.reset();
+    button.disabled = false;
+    button.textContent = "Get access";
+  };
+
+  if (!FORM_ENDPOINT) {
+    const body = `Resource: ${data.resource}\nName: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone}\nInvestable assets: ${data.assets}`;
+    window.location.href = `mailto:info@pensioninsights.co.uk?subject=${encodeURIComponent("Website enquiry: " + data.resource)}&body=${encodeURIComponent(body)}`;
+    showSuccess();
+    return;
+  }
+
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Accept": "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error("Bad response");
+    showSuccess();
+  } catch (err) {
+    errorBox.textContent = "Something went wrong sending that. Please email info@pensioninsights.co.uk and we'll sort it.";
+    errorBox.classList.add("is-shown");
+    button.disabled = false;
+    button.textContent = "Get access";
+  }
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-    }
+    if (entry.isIntersecting) entry.target.classList.add("is-visible");
   });
 }, { threshold: 0.18 });
 
 document.querySelectorAll(".reveal").forEach((element) => {
-  if (!element.classList.contains("is-visible")) {
-    observer.observe(element);
-  }
+  if (!element.classList.contains("is-visible")) observer.observe(element);
 });
 
 document.getElementById("yearline").textContent = `© ${new Date().getFullYear()} Your Pension Insights`;
