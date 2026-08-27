@@ -1,11 +1,11 @@
 /**
- * Your Pension Insights — website lead handler
+ * Your Retirement Insights — website lead handler
  *
- * Receives enquiries from the modal on pensioninsights.co.uk, appends each one
+ * Receives enquiries from the modal on retirementinsights.co.uk, appends each one
  * to this spreadsheet, and creates the contact in GoHighLevel via the API.
  *
  * SETUP
- *  1. Create a Google Sheet called "Pension Insights - Website Leads".
+ *  1. Create a Google Sheet called "Retirement Insights - Website Leads".
  *  2. Extensions > Apps Script, delete anything there, paste this file in.
  *  3. Fill in GHL_API_TOKEN below.
  *     In GHL: Settings > Private Integrations > Create new integration,
@@ -26,7 +26,7 @@
 var GHL_API_TOKEN = '';
 var GHL_LOCATION_ID = 'egvzjbE2j8uCngMIIDh7';
 var GHL_API_VERSION = '2021-07-28';
-var NOTIFY_EMAIL = 'info@pensioninsights.co.uk';
+var NOTIFY_EMAIL = 'info@retirementinsights.co.uk';
 var SHEET_NAME = 'Leads';
 
 var HEADERS = [
@@ -63,7 +63,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return json({ ok: true, message: 'Your Pension Insights lead handler is running.' });
+  return json({ ok: true, message: 'Your Retirement Insights lead handler is running.' });
 }
 
 function appendRow(data, crmResult) {
@@ -114,7 +114,7 @@ function sendToGhl(data) {
       lastName: data.lastName || '',
       email: data.email || '',
       phone: data.phone || '',
-      source: 'Pension Insights website'
+      source: 'Retirement Insights website'
     });
 
     var code = res.getResponseCode();
@@ -181,7 +181,7 @@ function notify(data, crmResult) {
 
   var subject = 'New website lead: ' + (data.firstName || '') + ' ' + (data.lastName || '');
   var body = [
-    'A new enquiry came in from pensioninsights.co.uk.',
+    'A new enquiry came in from retirementinsights.co.uk.',
     '',
     'Name:               ' + (data.firstName || '') + ' ' + (data.lastName || ''),
     'Email:              ' + (data.email || ''),

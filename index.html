@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Pension Insights | Making the Most of Your Retirement</title>
+<title>Your Retirement Insights | Making the Most of Your Retirement</title>
 <meta
   name="description"
   content="Independent education on turning your pension into a retirement income that lasts: allowances, timing, tax and legacy."
 >
-<link rel="canonical" href="https://pensioninsights.co.uk/">
+<link rel="canonical" href="https://retirementinsights.co.uk/">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Your Pension Insights">
-<meta property="og:url" content="https://pensioninsights.co.uk/">
-<meta property="og:title" content="Your Pension Insights | Making the Most of Your Retirement">
+<meta property="og:site_name" content="Your Retirement Insights">
+<meta property="og:url" content="https://retirementinsights.co.uk/">
+<meta property="og:title" content="Your Retirement Insights | Making the Most of Your Retirement">
 <meta property="og:description" content="Independent education on turning your pension into a retirement income that lasts: allowances, timing, tax and legacy.">
-<meta property="og:image" content="https://pensioninsights.co.uk/assets/og-image.png">
+<meta property="og:image" content="https://retirementinsights.co.uk/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Your Pension Insights">
+<meta property="og:image:alt" content="Your Retirement Insights">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Your Pension Insights | Making the Most of Your Retirement">
+<meta name="twitter:title" content="Your Retirement Insights | Making the Most of Your Retirement">
 <meta name="twitter:description" content="Independent education on turning your pension into a retirement income that lasts: allowances, timing, tax and legacy.">
-<meta name="twitter:image" content="https://pensioninsights.co.uk/assets/og-image.png">
+<meta name="twitter:image" content="https://retirementinsights.co.uk/assets/og-image.png">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
@@ -1078,8 +1078,8 @@ footer {
 
   <div class="nav-wrap">
     <nav class="nav">
-      <a class="brand" href="#top" aria-label="Your Pension Insights home">
-        <img src="assets/logo.png" alt="Your Pension Insights logo">
+      <a class="brand" href="#top" aria-label="Your Retirement Insights home">
+        <img src="assets/logo.png" alt="Your Retirement Insights logo">
       </a>
       <div class="nav-links" aria-label="Primary navigation">
         <a href="#about">Approach</a>
@@ -1164,7 +1164,7 @@ footer {
         <span class="eyebrow">Our approach</span>
         <h2>Independent insight for people making serious financial decisions.</h2>
         <p>
-          Your Pension Insights exists because pension education is usually either too shallow to be useful or too technical to
+          Your Retirement Insights exists because pension education is usually either too shallow to be useful or too technical to
           be readable. We aim for the space in between: enough detail to change what you do, written so you can follow it.
         </p>
       </div>
@@ -1413,7 +1413,7 @@ footer {
         </p>
         <div class="button-row" style="margin-top:24px;">
           <button class="button-primary" type="button" data-open-form data-resource="Footer CTA">Get access</button>
-          <a class="button-secondary" href="mailto:info@pensioninsights.co.uk">info@pensioninsights.co.uk</a>
+          <a class="button-secondary" href="mailto:info@retirementinsights.co.uk">info@retirementinsights.co.uk</a>
         </div>
       </div>
     </section>
@@ -1422,7 +1422,7 @@ footer {
   <footer>
     <div class="footer-inner">
       <div>
-        <div class="footer-brand">Your Pension Insights</div>
+        <div class="footer-brand">Your Retirement Insights</div>
         <p>
           Expert financial education, independent insights and wealth management guidance.
         </p>
@@ -1443,7 +1443,7 @@ footer {
         <a href="#contact">Contact</a>
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>
-        <span id="yearline">© 2026 Your Pension Insights</span>
+        <span id="yearline">© 2026 Your Retirement Insights</span>
       </div>
     </div>
   </footer>
@@ -1639,7 +1639,7 @@ form.addEventListener("submit", async (e) => {
 
   if (!FORM_ENDPOINT) {
     const body = `Resource: ${data.resource}\nName: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone}\nInvestable assets: ${data.assets}`;
-    window.location.href = `mailto:info@pensioninsights.co.uk?subject=${encodeURIComponent("Website enquiry: " + data.resource)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@retirementinsights.co.uk?subject=${encodeURIComponent("Website enquiry: " + data.resource)}&body=${encodeURIComponent(body)}`;
     showSuccess();
     return;
   }
@@ -1658,7 +1658,7 @@ form.addEventListener("submit", async (e) => {
     if (!res.ok) throw new Error("Bad response");
     showSuccess();
   } catch (err) {
-    errorBox.textContent = "Something went wrong sending that. Please email info@pensioninsights.co.uk and we'll sort it.";
+    errorBox.textContent = "Something went wrong sending that. Please email info@retirementinsights.co.uk and we'll sort it.";
     errorBox.classList.add("is-shown");
     button.disabled = false;
     button.textContent = "Get access";
@@ -1675,7 +1675,7 @@ document.querySelectorAll(".reveal").forEach((element) => {
   if (!element.classList.contains("is-visible")) observer.observe(element);
 });
 
-document.getElementById("yearline").textContent = `© ${new Date().getFullYear()} Your Pension Insights`;
+document.getElementById("yearline").textContent = `© ${new Date().getFullYear()} Your Retirement Insights`;
 </script>
 </body>
 </html>
